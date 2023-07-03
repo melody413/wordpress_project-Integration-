@@ -1,0 +1,35 @@
+query SinglePostBySlug($slug: String!) {
+  wpPosts(slug: [$slug]) {
+    posts {
+      title {
+        rendered
+      }
+      author {
+        name
+      }
+      content {
+        rendered
+      }
+      excerpt {
+        rendered
+      }
+      categories {
+        name
+        id
+        slug
+      }
+      date
+      featured_media {
+        source_url
+        alt_text
+        caption {
+          rendered
+        }
+        media_type
+      }
+      tags {
+        name
+      }
+    }
+  }
+}

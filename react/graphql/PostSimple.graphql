@@ -1,0 +1,12 @@
+query PostSimple($id: Int!) {
+  wpPost(id: $id) {
+    title {
+      rendered
+    }
+    categories {
+      name
+      id
+      slug
+    }
+  }
+}

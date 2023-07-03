@@ -1,0 +1,47 @@
+query ProductsByReference($ids: [ID!]) {
+  productsByIdentifier(field: reference, values: $ids)
+    @context(provider: "vtex.search-graphql") {
+    cacheId
+    productId
+    productName
+    description
+    categories
+    categoryTree {
+      name
+      href
+    }
+    link
+    linkText
+    brand
+    items {
+      name
+      itemId
+      referenceId {
+        Value
+      }
+      images {
+        imageUrl
+        imageTag
+      }
+      sellers {
+        sellerId
+        commertialOffer {
+          Installments {
+            Value
+            InterestRate
+            TotalValuePlusInterestRate
+            NumberOfInstallments
+            Name
+          }
+          AvailableQuantity
+          Price
+          ListPrice
+        }
+      }
+    }
+    productClusters {
+      id
+      name
+    }
+  }
+}

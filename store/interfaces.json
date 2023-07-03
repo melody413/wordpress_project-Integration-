@@ -1,0 +1,46 @@
+{
+    "blog-all-posts.wordpress-all-posts": {
+        "component": "WordpressAllPosts"
+    },
+    "blog-category-list.wordpress-category-list": {
+        "component": "WordpressCategory"
+    },
+    "blog-post-details.wordpress-post-details": {
+        "composition": "children",
+        "component": "WordpressPost"
+    },
+    "blog-latest-posts-preview.wordpress-latest-posts-preview": {
+        "component": "WordpressLatestPostsBlock"
+    },
+    "blog-category-preview.wordpress-category-preview": {
+        "component": "WordpressCategoryBlock"
+    },
+    "blog-search.wordpress-search": {
+        "component": "WordpressSearchBlock"
+    },
+    "search-blog-articles-preview.wordpress": {
+        "component": "WordpressSearchResultBlock"
+    },
+    "search-blog-articles-list.wordpress": {
+        "component": "WordpressProductSearchResult"
+    },
+    "blog-search-list.wordpress-search-list": {
+        "component": "WordpressSearchResult"
+    },
+    "blog-related-products.wordpress-related-products": {
+        "component": "WordpressRelatedProducts",
+        "required": [
+            "product-summary"
+        ],
+        "preview": {
+            "type": "grid",
+            "height": 550
+        }
+    },
+    "blog-related-posts.wordpress-related-posts": {
+        "component": "WordpressRelatedPosts"
+    },
+    "blog-breadcrumb.wordpress-breadcrumb": {
+        "component": "WordpressBreadcrumb"
+    }
+}

@@ -1,0 +1,5 @@
+query CategorySimple($category: Int!) {
+  wpCategory(id: $category) {
+    name
+  }
+}

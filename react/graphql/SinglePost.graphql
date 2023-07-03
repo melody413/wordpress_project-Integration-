@@ -1,0 +1,33 @@
+query SinglePost($id: Int!) {
+  wpPost(id: $id) {
+    title {
+      rendered
+    }
+    author {
+      name
+    }
+    content {
+      rendered
+    }
+    excerpt {
+      rendered
+    }
+    categories {
+      name
+      id
+      slug
+    }
+    date
+    featured_media {
+      source_url
+      alt_text
+      caption {
+        rendered
+      }
+      media_type
+    }
+    tags {
+      name
+    }
+  }
+}

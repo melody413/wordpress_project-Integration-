@@ -1,0 +1,39 @@
+query CategoryPostsBySlug(
+  $wp_page: Int
+  $wp_per_page: Int
+  $categorySlug: String!
+) {
+  wpCategories(slug: [$categorySlug]) {
+    categories {
+      name
+      id
+      wpPosts(page: $wp_page, per_page: $wp_per_page) {
+        posts {
+          title {
+            rendered
+          }
+          author {
+            name
+          }
+          excerpt {
+            rendered
+          }
+          categories {
+            name
+            id
+            slug
+          }
+          featured_media {
+            source_url
+            alt_text
+            media_type
+          }
+          date
+          id
+          slug
+        }
+        total_count
+      }
+    }
+  }
+}

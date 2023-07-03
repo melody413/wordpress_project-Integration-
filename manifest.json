@@ -1,0 +1,119 @@
+{
+  "name": "wordpress-integration",
+  "vendor": "vtex",
+  "version": "1.0.2",
+  "title": "Wordpress Integration",
+  "description": "Connect a Wordpress blog to a VTEX store",
+  "categories": [],
+  "registries": [],
+  "builders": {
+    "node": "4.x",
+    "graphql": "1.x",
+    "react": "3.x",
+    "messages": "1.x",
+    "store": "0.x",
+    "docs": "0.x"
+  },
+  "mustUpdateAt": "2018-09-05",
+  "scripts": {
+    "postreleasy": "vtex publish --verbose"
+  },
+  "dependencies": {
+    "vtex.blog-interfaces": "0.x",
+    "vtex.store": "2.x",
+    "vtex.styleguide": "9.x",
+    "vtex.store-components": "3.x",
+    "vtex.shelf": "1.x",
+    "vtex.product-summary": "2.x",
+    "vtex.search-graphql": "0.x",
+    "vtex.search-page-context": "0.x",
+    "vtex.css-handles": "0.x"
+  },
+  "settingsSchema": {
+    "title": "Wordpress Integration",
+    "type": "object",
+    "properties": {
+      "endpoint": {
+        "title": "Wordpress URL",
+        "description": "Enter the URL of your Wordpress installation in the form http://www.example.com/",
+        "type": "string"
+      },
+      "titleTag": {
+        "title": "Title tag for blog homepage",
+        "description": "Will also be appended to inner blog pages",
+        "type": "string"
+      },
+      "blogRoute": {
+        "title": "URL path for blog homepage",
+        "description": "Example: if 'foo' is entered here, blog homepage will be at http://www.yoursite.com/foo . Make sure routes in your store-theme match this setting. If left blank, default is 'blog'",
+        "type": "string"
+      }
+    }
+  },
+  "policies": [
+    {
+      "name": "outbound-access",
+      "attrs": {
+        "host": "{{account}}.vtexcommercestable.com.br",
+        "path": "/api/dataentities/*"
+      }
+    },
+    {
+      "name": "outbound-access",
+      "attrs": {
+        "host": "demo.wp-api.org",
+        "path": "/*"
+      }
+    },
+    {
+      "name": "outbound-access",
+      "attrs": {
+        "host": "wwgolfshops.wpengine.com",
+        "path": "/*"
+      }
+    },
+    {
+      "name": "outbound-access",
+      "attrs": {
+        "host": "travel.redoxx.com",
+        "path": "/*"
+      }
+    },
+    {
+      "name": "outbound-access",
+      "attrs": {
+        "host": "lwshoesblog.wpengine.com",
+        "path": "/*"
+      }
+    },
+    {
+      "name": "outbound-access",
+      "attrs": {
+        "host": "texasboot.wpengine.com",
+        "path": "/*"
+      }
+    },
+    {
+      "name": "outbound-access",
+      "attrs": {
+        "host": "ebikeshop.wpengine.com",
+        "path": "/*"
+      }
+    },
+    {
+      "name": "outbound-access",
+      "attrs": {
+        "host": "lionspride.wpengine.com",
+        "path": "/*"
+      }
+    },
+    {
+      "name": "outbound-access",
+      "attrs": {
+        "host": "invictastores.wpengine.com",
+        "path": "/*"
+      }
+    }
+  ],
+  "$schema": "https://raw.githubusercontent.com/vtex/node-vtex-api/master/gen/manifest.schema"
+}

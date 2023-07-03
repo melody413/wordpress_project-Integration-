@@ -1,0 +1,37 @@
+{
+  "vendor": "vtex",
+  "name": "store-theme-wordpress-example",
+  "version": "0.0.1",
+  "builders": {
+    "store": "0.x"
+  },
+  "mustUpdateAt": "2018-09-05",
+  "scripts": {
+    "postreleasy": "vtex publish --verbose"
+  },
+  "dependencies": {
+    "vtex.store": "2.x",
+    "vtex.store-header": "2.x",
+    "vtex.product-summary": "2.x",
+    "vtex.store-footer": "2.x",
+    "vtex.store-components": "3.x",
+    "vtex.styleguide": "9.x",
+    "vtex.slider": "0.x",
+    "vtex.carousel": "2.x",
+    "vtex.shelf": "1.x",
+    "vtex.menu": "2.x",
+    "vtex.minicart": "2.x",
+    "vtex.product-details": "1.x",
+    "vtex.product-kit": "1.x",
+    "vtex.search-result": "3.x",
+    "vtex.login": "2.x",
+    "vtex.my-account": "1.x",
+    "vtex.flex-layout": "0.x",
+    "vtex.rich-text": "0.x",
+    "vtex.store-drawer": "0.x",
+    "vtex.locale-switcher": "0.x",
+    "vtex.product-quantity": "1.x", 
+    "vtex.wordpress-integration": "0.x"
+  },
+  "$schema": "https://raw.githubusercontent.com/vtex/node-vtex-api/master/gen/manifest.schema"
+}

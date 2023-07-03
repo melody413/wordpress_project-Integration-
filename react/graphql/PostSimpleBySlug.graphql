@@ -1,0 +1,14 @@
+query PostSimpleBySlug($slug: String!) {
+  wpPosts(slug: [$slug]) {
+    posts {
+      title {
+        rendered
+      }
+      categories {
+        name
+        id
+        slug
+      }
+    }
+  }
+}

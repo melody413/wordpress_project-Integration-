@@ -1,0 +1,49 @@
+{
+  "name": "wordpress",
+  "version": "1.0.2",
+  "description": "",
+  "scripts": {
+    "test": "vtex-scripts test"
+  },
+  "author": "VTEX",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "apollo-cache": "^1.3.4",
+    "apollo-client": "^2.6.8",
+    "apollo-link": "^1.2.13",
+    "apollo-utilities": "^1.3.3",
+    "graphql": "^14.5.8",
+    "prop-types": "^15.7.2",
+    "react": "^16.8.6",
+    "react-apollo": "^3.1.3",
+    "react-dom": "^16.8.5",
+    "react-helmet": "^5.2.0",
+    "react-intl": "^2.9.0",
+    "react-sanitized-html": "^2.0.0",
+    "sanitize-html": "^1.20.1",
+    "sanitize-html-react": "^1.13.0",
+    "typescript": "3.7.3"
+  },
+  "devDependencies": {
+    "@types/graphql": "^14.5.0",
+    "@types/jest": "^24.0.25",
+    "@types/react": "^16.8.8",
+    "@types/react-dom": "^16.8.3",
+    "@types/react-helmet": "^5.0.8",
+    "@types/react-intl": "^2.3.17",
+    "@vtex/tsconfig": "^0.3.0",
+    "babel-eslint": "^10.0.3",
+    "eslint": "5.15.1",
+    "prettier": "^1.19.1",
+    "vtex.blog-interfaces": "http://vtex.vteximg.com.br/_v/public/typings/v1/vtex.blog-interfaces@0.0.6/public/@types/vtex.blog-interfaces",
+    "vtex.css-handles": "http://vtex.vteximg.com.br/_v/public/typings/v1/vtex.css-handles@0.4.1/public/@types/vtex.css-handles",
+    "vtex.product-summary": "http://vtex.vteximg.com.br/_v/public/typings/v1/vtex.product-summary@2.47.0/public/_types/react",
+    "vtex.render-runtime": "http://vtex.vteximg.com.br/_v/public/typings/v1/vtex.render-runtime@8.87.3/public/@types/vtex.render-runtime",
+    "vtex.search-graphql": "http://vtex.vteximg.com.br/_v/public/typings/v1/vtex.search-graphql@0.13.1/public/@types/vtex.search-graphql",
+    "vtex.search-page-context": "http://vtex.vteximg.com.br/_v/public/typings/v1/vtex.search-page-context@0.0.2/public/_types/react",
+    "vtex.shelf": "http://vtex.vteximg.com.br/_v/public/typings/v1/vtex.shelf@1.33.5/public/_types/react",
+    "vtex.store": "http://vtex.vteximg.com.br/_v/public/typings/v1/vtex.store@2.80.0/public/@types/vtex.store",
+    "vtex.store-components": "http://vtex.vteximg.com.br/_v/public/typings/v1/vtex.store-components@3.98.0/public/_types/react",
+    "vtex.styleguide": "http://vtex.vteximg.com.br/_v/public/typings/v1/vtex.styleguide@9.103.4/public/@types/vtex.styleguide"
+  }
+}

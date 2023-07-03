@@ -1,0 +1,77 @@
+{
+  "store.blog-home": {
+        "blocks": [
+            "blog-search.wordpress-search",
+            "blog-latest-posts-preview.wordpress-latest-posts-preview",
+            "blog-category-preview.wordpress-category-preview#test",
+            "blog-category-preview.wordpress-category-preview#test2",
+            "blog-all-posts.wordpress-all-posts"
+        ]
+    },
+    "store.blog-category": {
+        "blocks": [
+            "blog-category-list.wordpress-category-list"
+        ]
+    },
+    "store.blog-post": {
+        "blocks": [
+            "blog-post-details.wordpress-post-details"
+        ]
+    },
+    "store.blog-search-result": {
+        "blocks": [
+            "blog-search-list.wordpress-search-list"
+        ]
+    },
+    "blog-latest-posts-preview.wordpress-latest-posts-preview": {
+        "props": {
+            "title": "Latest Posts",
+            "useTextOverlays": true
+        }
+    },
+    "blog-category-preview.wordpress-category-preview#test": {
+        "props": {
+            "category": 5,
+            "description": "Description of category",
+            "useTextOverlays": false
+        }
+    },
+    "blog-category-preview.wordpress-category-preview#test2": {
+        "props": {
+            "category": 410,
+            "description": "Description of category",
+            "useTextOverlays": false
+        }
+    },
+    "blog-post-details.wordpress-post-details": {
+        "children": [
+            "blog-related-products.wordpress-related-products"
+        ]
+    },
+    "blog-related-products.wordpress-related-products": {
+        "blocks": [
+            "product-summary.shelf"
+        ],
+        "props": {
+            "orderBy": "OrderByTopSaleDESC",
+            "productList": {
+                "maxItems": 8,
+                "itemsPerPage": 4,
+                "scroll": "BY_PAGE",
+                "arrows": true,
+                "titleText": "Related Products"
+            }
+        }
+    },
+    "product-summary.shelf": {
+      "children": [
+        "product-summary-add-to-list-button",
+        "product-summary-image",
+        "product-summary-name",
+        "product-rating-inline",
+        "product-summary-space",
+        "product-summary-price",
+        "product-summary-buy-button"
+      ]
+    }
+}

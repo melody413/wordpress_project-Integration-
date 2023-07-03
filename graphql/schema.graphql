@@ -1,0 +1,654 @@
+type WPPost {
+  date: String
+  date_gmt: String
+  guid: WPGuid
+  id: Int
+  link: String
+  modified: String
+  modified_gmt: String
+  slug: String
+  status: WPStatus
+  type: String
+  title: WPTitle
+  content: WPContent
+  author: WPUser
+  excerpt: WPExcerpt
+  featured_media: WPMedia
+  comment_status: WPOpenClosed
+  ping_status: WPOpenClosed
+  format: WPFormat
+  meta: String
+  sticky: Boolean
+  template: String
+  categories: [WPCategory]
+  tags: [WPTag]
+}
+
+type WPGuid {
+  raw: String
+  rendered: String
+}
+
+enum WPStatus {
+  publish
+  future
+  draft
+  pending
+  private
+}
+
+type WPTitle {
+  raw: String
+  rendered: String
+}
+
+type WPContent {
+  raw: String
+  rendered: String
+  protected: Boolean
+}
+
+type WPExcerpt {
+  raw: String
+  rendered: String
+  protected: Boolean
+}
+
+type WPCaption {
+  raw: String
+  rendered: String
+  protected: Boolean
+}
+
+type WPMediaDescription {
+  raw: String
+  rendered: String
+  protected: Boolean
+}
+
+enum WPOpenClosed {
+  open
+  closed
+}
+
+enum WPFormat {
+  standard
+  aside
+  chat
+  gallery
+  link
+  image
+  quote
+  status
+  video
+  audio
+}
+
+enum WPOrder {
+  desc
+  asc
+}
+
+enum WPOrderBy {
+  author
+  date
+  id
+  include
+  modified
+  parent
+  relevance
+  slug
+  title
+}
+
+enum WPCatOrderBy {
+  id
+  include
+  name
+  slug
+  term_group
+  description
+  count
+}
+
+enum WPPageOrderBy {
+  author
+  date
+  id
+  include
+  modified
+  parent
+  relevance
+  slug
+  title
+  menu_order
+}
+
+enum WPCommentOrderBy {
+  date
+  date_gmt
+  id
+  include
+  post
+  parent
+  type
+}
+
+enum WPUserOrderBy {
+  id
+  include
+  name
+  registered_date
+  slug
+  email
+  url
+}
+
+type WPCategory {
+  id: Int
+  slug: String
+  count: Int
+  description: String
+  link: String
+  name: String
+  taxonomy: WPTaxonomyType
+  parent: Int
+  meta: String
+  wpPosts(
+    page: Int = 1
+    per_page: Int = 10
+    search: String
+    after: String
+    author: [Int]
+    author_exclude: [Int]
+    before: String
+    exclude: [Int]
+    include: [Int]
+    offset: Int
+    order: WPOrder = "desc"
+    orderby: WPOrderBy = "date"
+    slug: [String]
+    status: [String] = ["publish"]
+    tags: [Int]
+    tags_exclude: [Int]
+    sticky: Boolean
+  ): WPPostsResult
+}
+
+enum WPTaxonomyType {
+  category
+  post_tag
+  nav_menu
+  link_category
+  post_format
+}
+
+type WPTag {
+  id: Int
+  count: Int
+  description: String
+  link: String
+  name: String
+  slug: String
+  taxonomy: WPTaxonomyType
+  meta: String
+  wpPosts(
+    page: Int = 1
+    per_page: Int = 10
+    search: String
+    after: String
+    author: [Int]
+    author_exclude: [Int]
+    before: String
+    exclude: [Int]
+    include: [Int]
+    offset: Int
+    order: WPOrder = "desc"
+    orderby: WPOrderBy = "date"
+    slug: [String]
+    status: [String] = ["publish"]
+    tags: [Int]
+    tags_exclude: [Int]
+    sticky: Boolean
+  ): WPPostsResult
+}
+
+type WPPage {
+  date: String
+  date_gmt: String
+  guid: WPGuid
+  id: Int
+  link: String
+  modified: String
+  modified_gmt: String
+  slug: String
+  status: WPStatus
+  type: String
+  parent: Int
+  title: WPTitle
+  content: WPContent
+  author: Int
+  excerpt: WPExcerpt
+  featured_media: Int
+  comment_status: WPOpenClosed
+  ping_status: WPOpenClosed
+  menu_order: Int
+  meta: String
+  template: String
+}
+
+type WPComment {
+  id: Int
+  author: Int
+  author_email: String
+  author_ip: String
+  author_name: String
+  author_user_agent: String
+  content: WPContent
+  date: String
+  date_gmt: String
+  link: String
+  parent: Int
+  post: Int
+  status: String
+  type: String
+  author_avatar_urls: WPAvatarObject
+  meta: String
+}
+
+type WPAvatarObject {
+  # 24x24 avatar url
+  size24: String
+
+  # 48x48 avatar url
+  size48: String
+
+  # 96x96 avatar url
+  size96: String
+}
+
+type WPTaxonomy {
+  capabilities: WPTaxonomyCapabilities
+  description: String
+  hierarchical: Boolean
+  labels: WPTaxonomyLabels
+  name: String
+  slug: String
+  show_cloud: Boolean
+  types: [String]
+  rest_base: String
+}
+
+type WPTaxonomyCapabilities {
+  assign_terms: String
+  delete_terms: String
+  edit_terms: String
+  manage_terms: String
+}
+
+type WPTaxonomyLabels {
+  add_new_item: String
+  add_or_remove_items: String
+  all_items: String
+  choose_from_most_used: String
+  edit_item: String
+  items_list: String
+  items_list_navigation: String
+  menu_name: String
+  name: String
+  name_admin_bar: String
+  new_item_name: String
+  no_terms: String
+  not_found: String
+  parent_item: String
+  parent_item_colon: String
+  popular_items: String
+  search_items: String
+  separate_items_with_commas: String
+  singular_name: String
+  update_item: String
+  view_item: String
+}
+
+type WPMedia {
+  date: String
+  date_gmt: String
+  guid: WPGuid
+  id: Int
+  link: String
+  modified: String
+  modified_gmt: String
+  slug: String
+  status: WPStatus
+  type: String
+  title: WPTitle
+  author: Int
+  comment_status: WPOpenClosed
+  ping_status: WPOpenClosed
+  meta: String
+  template: String
+  alt_text: String
+  caption: WPCaption
+  description: WPMediaDescription
+  media_type: WPMediaType
+  mime_type: String
+  media_details: WPMediaDetails
+  post: Int
+  source_url: String
+}
+
+enum WPMediaType {
+  image
+  file
+}
+
+enum WPMediaTypeFilter {
+  image
+  video
+  audio
+  application
+}
+
+type WPMediaDetails {
+  file: String
+  height: Int
+  image_meta: WPImageMeta
+  sizes: [WPMediaSize]
+  width: Int
+}
+
+type WPImageMeta {
+  aperture: String
+  camera: String
+  caption: String
+  copyright: String
+  created_timestamp: String
+  credit: String
+  focal_length: String
+  iso: String
+  keywords: [String]
+  orientation: String
+  shutter_speed: String
+  title: String
+}
+
+type WPMediaSize {
+  file: String
+  height: Int
+  mime_type: String
+  slug: String
+  source_url: String
+  width: Int
+}
+
+type WPUser {
+  id: Int
+  username: String
+  name: String
+  first_name: String
+  last_name: String
+  email: String
+  url: String
+  description: String
+  link: String
+  locale: String
+  nickname: String
+  slug: String
+  registered_date: String
+  roles: [String]
+  password: String
+  capabilities: [String]
+  extra_capabilities: [String]
+  avatar_urls: WPAvatarObject
+  meta: String
+}
+
+type WPPostType {
+  capabilities: [String]
+  description: String
+  hierarchical: Boolean
+  labels: WPPostLabels
+  name: String
+  slug: String
+  supports: [String]
+  taxonomies: [String]
+  rest_base: String
+}
+
+type WPPostLabels {
+  add_new: String
+  add_new_item: String
+  all_items: String
+  archives: String
+  attributes: String
+  edit_item: String
+  featured_image: String
+  filter_items_list: String
+  insert_into_item: String
+  items_list: String
+  items_list_navigation: String
+  menu_name: String
+  name: String
+  name_admin_bar: String
+  new_item: String
+  not_found: String
+  not_found_in_trash: String
+  parent_item_colon: String
+  remove_featured_image: String
+  search_items: String
+  set_featured_image: String
+  singular_name: String
+  uploaded_to_this_item: String
+  use_featured_image: String
+  view_item: String
+  view_items: String
+}
+
+type WPPostStatus {
+  name: String
+  private: Boolean
+  protected: Boolean
+  public: Boolean
+  queryable: Boolean
+  show_in_list: Boolean
+  slug: String
+}
+
+type WPSettings {
+  title: String
+  description: String
+  timezone: String
+  date_format: String
+  time_format: String
+  start_of_week: Int
+  language: String
+  use_smilies: Boolean
+  default_category: Int
+  default_post_format: String
+  posts_per_page: Int
+  default_ping_status: WPOpenClosed
+  default_comment_status: WPOpenClosed
+}
+
+type WPPostsResult {
+  posts: [WPPost]
+  total_count: Int
+}
+
+type WPCategoriesResult {
+  categories: [WPCategory]
+  total_count: Int
+}
+
+type WPTagsResult {
+  tags: [WPTag]
+  total_count: Int
+}
+
+type WPPagesResult {
+  pages: [WPPage]
+  total_count: Int
+}
+
+type WPCommentsResult {
+  comments: [WPComment]
+  total_count: Int
+}
+
+type WPMediaResult {
+  media: [WPMedia]
+  total_count: Int
+}
+
+type WPUsersResult {
+  users: [WPUser]
+  total_count: Int
+}
+
+type Settings {
+  titleTag: String
+  blogRoute: String
+}
+
+type Query {
+  wpPosts(
+    page: Int = 1
+    per_page: Int = 10
+    search: String
+    after: String
+    author: [Int]
+    author_exclude: [Int]
+    before: String
+    exclude: [Int]
+    include: [Int]
+    offset: Int
+    order: WPOrder = "desc"
+    orderby: WPOrderBy = "date"
+    slug: [String]
+    status: [String] = ["publish"]
+    categories: [Int]
+    categories_exclude: [Int]
+    tags: [Int]
+    tags_exclude: [Int]
+    sticky: Boolean
+  ): WPPostsResult @cacheControl(scope: PUBLIC, maxAge: MEDIUM)
+  wpPost(id: Int!, password: String): WPPost
+    @cacheControl(scope: PUBLIC, maxAge: MEDIUM)
+  wpCategories(
+    page: Int = 1
+    per_page: Int = 10
+    search: String
+    exclude: [Int]
+    include: [Int]
+    order: WPOrder
+    orderby: WPCatOrderBy
+    hide_empty: Boolean
+    parent: Int
+    post: Int
+    slug: [String]
+  ): WPCategoriesResult @cacheControl(scope: PUBLIC, maxAge: MEDIUM)
+  wpCategory(id: Int!): WPCategory @cacheControl(scope: PUBLIC, maxAge: MEDIUM)
+  wpTags(
+    page: Int = 1
+    per_page: Int = 10
+    search: String
+    exclude: [Int]
+    include: [Int]
+    offset: Int
+    order: WPOrder
+    orderby: WPCatOrderBy
+    hide_empty: Boolean
+    post: Int
+    slug: [String]
+  ): WPTagsResult @cacheControl(scope: PUBLIC, maxAge: MEDIUM)
+  wpTag(id: Int!): WPTag @cacheControl(scope: PUBLIC, maxAge: MEDIUM)
+  wpPages(
+    page: Int = 1
+    per_page: Int = 10
+    search: String
+    after: String
+    author: [Int]
+    author_exclude: [Int]
+    before: String
+    exclude: [Int]
+    include: [Int]
+    menu_order: Int
+    offset: Int
+    order: WPOrder
+    orderby: WPPageOrderBy
+    parent: [Int]
+    parent_exclude: [Int]
+    slug: [String]
+    status: [String] = ["publish"]
+  ): WPPagesResult @cacheControl(scope: PUBLIC, maxAge: MEDIUM)
+  wpPage(id: Int!, password: String): WPPage
+    @cacheControl(scope: PUBLIC, maxAge: MEDIUM)
+  wpComments(
+    page: Int = 1
+    per_page: Int = 10
+    search: String
+    after: String
+    author: [Int]
+    author_exclude: [Int]
+    author_email: String
+    before: String
+    exclude: [Int]
+    include: [Int]
+    offset: Int
+    order: WPOrder
+    orderby: WPCommentOrderBy
+    parent: [Int]
+    parent_exclude: [Int]
+    post: [Int]
+    status: String
+    type: String
+    password: String
+  ): WPCommentsResult @cacheControl(scope: PUBLIC, maxAge: MEDIUM)
+  wpComment(id: Int!, password: String): WPComment
+    @cacheControl(scope: PUBLIC, maxAge: MEDIUM)
+  wpTaxonomies(type: String): [WPTaxonomy]
+    @cacheControl(scope: PUBLIC, maxAge: MEDIUM)
+  wpTaxonomy(taxonomy: String): WPTaxonomy
+    @cacheControl(scope: PUBLIC, maxAge: MEDIUM)
+  wpMedia(
+    page: Int = 1
+    per_page: Int = 10
+    search: String
+    after: String
+    author: [Int]
+    author_exclude: [Int]
+    before: String
+    exclude: [Int]
+    include: [Int]
+    order: WPOrder
+    orderby: WPOrderBy
+    parent: [Int]
+    parent_exclude: [Int]
+    slug: [String]
+    status: [String]
+    media_type: WPMediaTypeFilter
+    mime_type: String
+  ): WPMediaResult @cacheControl(scope: PUBLIC, maxAge: MEDIUM)
+  wpMediaSingle(id: Int!): WPMedia @cacheControl(scope: PUBLIC, maxAge: MEDIUM)
+  wpUsers(
+    page: Int = 1
+    per_page: Int = 10
+    search: String
+    exclude: [Int]
+    include: [Int]
+    offset: Int
+    order: WPOrder
+    orderby: WPUserOrderBy
+    slug: [String]
+    roles: [String]
+  ): WPUsersResult @cacheControl(scope: PUBLIC, maxAge: MEDIUM)
+  wpUser(id: Int!): WPUser @cacheControl(scope: PUBLIC, maxAge: MEDIUM)
+  wpPostTypes: [WPPostType] @cacheControl(scope: PUBLIC, maxAge: MEDIUM)
+  wpPostType(type: String!): WPPostType
+    @cacheControl(scope: PUBLIC, maxAge: MEDIUM)
+  wpPostStatuses: [WPPostStatus] @cacheControl(scope: PUBLIC, maxAge: MEDIUM)
+  wpPostStatus(status: String): WPPostStatus
+    @cacheControl(scope: PUBLIC, maxAge: MEDIUM)
+  wpSettings: WPSettings @cacheControl(scope: PUBLIC, maxAge: MEDIUM)
+  appSettings: Settings @cacheControl(scope: PUBLIC, maxAge: MEDIUM)
+}
